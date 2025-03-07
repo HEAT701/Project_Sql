@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="tudo_form">
+            <label for="tital">Title</label>
+            {{form.titla}}
+            <label for="">text:</label>
+              {{form.text}}
+            <label for="input"></label>
+           <input {{form.date}}>
+            <button type="submit">click Me</button>
+        </div>
+    </form>
+    <div class="Sections">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>tital</th>
+                <th>Text</th>
+                <th>Date</th>
+            </tr>
+            {% for data in data  %}
+            <tr>
+                <td>{{data.id}}</td>
+                <td>{{data.titla}}</td>
+                <td>{{data.text}}</td>
+                <td>{{data.date}}</td>   
+                <td>
+                    <form action="{% url 'deletedata' data.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete">
+                    </form>
+                </td>
+                <td> 
+                    <form action="{% url 'Updatedata' data.id %}" method="get">
+                       {% csrf_token %}
+                     <input type="submit" value="Edit">
+                    </form>
+                </td>
+            </tr>
+              
+            {% endfor %}
+           
+        </table>
+    </div>
+</body>
+<style>
+    table tr td{
+        border: 1px solid black;
+    }
+</style>
+</html>

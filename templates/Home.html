@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Wellcome To Home Page</h1>
+        {% for i in data %}
+        <ul>
+            <li>{{i.titla}}</li>
+            <li>{{i.text}}</li>
+            <li>{{i.date}}</li>
+        </ul>
+        {% endfor %}
+
+    <div>
+        <form action="" method="post">
+            <h1>file your form</h1>
+            {{data}}
+        </form>
+    </div>
+</body>
+</html>
